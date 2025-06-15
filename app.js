@@ -10,6 +10,7 @@ const newRouter = require('./routes/newRouter');
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
+// Sever
 app.use('/', indexRouter);
 app.use('/new', newRouter);
 
