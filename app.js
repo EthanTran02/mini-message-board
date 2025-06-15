@@ -3,16 +3,16 @@ const app = express();
 const PORT = 3000;
 
 // ROUTER
-const indexRouter = require('./routes/indexRouter');
-const newRouter = require('./routes/newRouter');
+const messagesRouter = require('./routes/messagesRouter.js');
+const formRouter = require('./routes/formRouter.js');
 
 // Setup ejs and css
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 // Sever
-app.use('/', indexRouter);
-app.use('/new', newRouter);
+app.use('/', messagesRouter);
+app.use('/form', formRouter);
 
 app.listen(PORT, () => {
   console.log('running on Port: ' + PORT);
