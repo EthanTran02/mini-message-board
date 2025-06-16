@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const formRouter = require('../controllers/formController');
+const formController = require('../controllers/formController');
 
-router.get('/', formRouter.getForm);
+router.get('/', formController.getForm);
 
 module.exports = router;
