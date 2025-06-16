@@ -75,22 +75,115 @@ h6 {
 }
 
 /* ------------------------------------------------------ */
+/*          MINIMALIST UI ENHANCEMENTS START HERE         */
+/* ------------------------------------------------------ */
 
+/* --- Global Layout & Typography --- */
 body {
-  padding-top: 40px;
-  padding-left: 40px;
-  padding-right: 40px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #ffffff;
+  color: #2d3748; /* A softer black for text */
+  max-width: 800px; /* Constrain width for better readability */
+  margin: 40px auto; /* Center the layout on the page */
+  padding: 0 24px; /* Add space on the sides for smaller screens */
 }
 
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 48px; /* More space after the main title */
+  border-bottom: 1px solid #e2e8f0; /* Subtle separator line */
+  padding-bottom: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --- Message List & Cards --- */
 .messages {
-  display: flex;
-  gap: 30px;
-  margin-top: 60px;
-
-  margin-bottom: 32px;
+  display: grid; /* Use grid for a more robust layout */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
 }
 
+.message-wrapper {
+  border: 1px solid #e2e8f0; /* Light, subtle border */
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  gap: 8px;
+}
+
+.message-wrapper p:first-of-type {
+  font-weight: 600; /* Make username stand out */
+  color: #1a202c;
+}
+
+.message-wrapper p:nth-of-type(2) {
+  color: #4a5568; /* Slightly lighter text for the message */
+  flex-grow: 1; /* Pushes the button to the bottom */
+}
+
+/* --- Form Styles --- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+input[type='text'] {
+  background-color: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type='text']:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5); /* A soft blue glow on focus */
+}
+
+/* --- Button Styles --- */
 button {
+  display: inline-block;
   cursor: pointer;
-  padding: 4px 16px;
+  padding: 10px 20px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Primary buttons (Add, Go Back, Submit) */
+form button,
+body > a > button {
+  background-color: #2d3748; /* Dark gray, almost black */
+  color: #ffffff;
+}
+
+form button:hover,
+body > a > button:hover {
+  background-color: #1a202c; /* Even darker on hover */
+}
+
+/* Secondary button (Detail button inside a card) */
+.message-wrapper button {
+  background-color: #f7fafc; /* Very light gray */
+  color: #2d3748;
+  border: 1px solid #e2e8f0;
+  margin-top: 16px; /* Space between message and button */
+  align-self: flex-start; /* Don't stretch full-width */
+}
+
+.message-wrapper button:hover {
+  background-color: #e2e8f0; /* A shade darker on hover */
 }
