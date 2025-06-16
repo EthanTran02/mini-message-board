@@ -14,6 +14,9 @@
       <div class="message-wrapper">
         <p><%= message.user %></p>
         <p><%= message.text %></p>
+        <a href="message/<%= messages.indexOf(message) %>">
+          <button>detail</button>
+        </a>
       </div>
       <% }) %>
     </div>

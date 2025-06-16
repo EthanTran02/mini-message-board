@@ -24,3 +24,13 @@ exports.addMessages = (req, res) => {
 
   res.redirect('/');
 };
+
+exports.getDetailMessage = (req, res) => {
+  const index = parseInt(req.params.id);
+
+  if (index >= 0 && index < messages.length) {
+    res.render('detail', { detailMessage: messages[index] });
+  } else {
+    res.redirect('/');
+  }
+};
