@@ -11,7 +11,11 @@
 
     <h1><%= detailMessage.user %></h1>
     <p><%= detailMessage.text %></p>
-    <p style="margin-bottom: 40px"><%= detailMessage.added %></p>
+    <p style="margin-bottom: 40px">
+      <%= detailMessage.added.toLocaleString('en-US', {weekday: "long", year:
+      "numeric", month: "long", day: "numeric", hour: "2-digit", minute:
+      "2-digit", hour12: true,}) %>
+    </p>
 
     <a href="/">
       <button>go back</button>
