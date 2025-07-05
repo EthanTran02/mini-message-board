@@ -1,36 +1,22 @@
-// Mocked data
-const messages = [
-  {
-    text: 'Hi there!',
-    user: 'Amado',
-    added: new Date(),
-  },
-  {
-    text: 'Hello World!',
-    user: 'Charles',
-    added: new Date(),
-  },
-];
+const db = require('../db/query');
 
-exports.getMessages = (req, res) => {
+async function getMessages(req, res) {
+  const messages = await db.getAllMessages();
   res.render('messages', { messages: messages });
-};
+}
 
-exports.addMessages = (req, res) => {
+async function addMessages(req, res) {
   const user = req.body.name;
   const text = req.body.message;
-
-  messages.push({ text: text, user: user, added: new Date() });
+  await db.addMessage(text, user);
 
   res.redirect('/');
-};
+}
 
-exports.getDetailMessage = (req, res) => {
+async function getDetailMessage(req, res) {
   const index = parseInt(req.params.id);
+  const message = await db.getDetailMessage(index);
+  res.render('detail', { detailMessage: message });
+}
 
-  if (index >= 0 && index < messages.length) {
-    res.render('detail', { detailMessage: messages[index] });
-  } else {
-    res.redirect('/');
-  }
-};
+module.exports = { getMessages, addMessages, getDetailMessage };

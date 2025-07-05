@@ -12,9 +12,9 @@
     <div class="messages">
       <% messages.map(message => { %>
       <div class="message-wrapper">
-        <p><%= message.user %></p>
+        <p><%= message.username %></p>
         <p><%= message.text %></p>
-        <a href="message/<%= messages.indexOf(message) %>">
+        <a href="message/<%= message.id %>">
           <button>detail</button>
         </a>
       </div>

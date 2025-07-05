@@ -6,12 +6,12 @@ const PORT = 3000;
 const messagesRouter = require('./routes/messagesRouter.js');
 const formRouter = require('./routes/formRouter.js');
 
+// Middleware
+app.use(express.urlencoded({ extended: true }));
+
 // Setup ejs and css
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-
-// Middleware
-app.use(express.urlencoded({ extended: true }));
 
 // Sever
 app.use('/', messagesRouter);
