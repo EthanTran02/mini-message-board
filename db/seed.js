@@ -12,7 +12,7 @@ async function seed() {
 
   await pool.query(`
     INSERT INTO messages (text, username) VALUES
-    ('test messagae 1', 'Khoi'), ('message 2', 'Trang')
+    ('Yo, just binged a whole season of that new sci-fi show. So dope!', 'NightOwl23'), ('Dude, found this sick taco spot downtown. Gotta hit it up!', 'SunnyVibes88')
     ON CONFLICT DO NOTHING;
   `);
 
